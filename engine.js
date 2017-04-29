@@ -211,6 +211,14 @@ $(document).ready(function(){
         context.fill();
         context.closePath();
     }
+
+    /**
+    * Returns a random integer between min (inclusive) and max (inclusive)
+    * Using Math.round() will give you a non-uniform distribution!
+    */
+    function getRandomInt(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
     
     /**
      * Main Function
@@ -221,7 +229,7 @@ $(document).ready(function(){
         const canvas = $("#gameArea")[0];
         var canvasContext = canvas.getContext('2d');
         //Generate blocks
-        var blockConfigs = generateBlocks(10, canvasContext);
+        var blockConfigs = generateBlocks(getRandomInt(7, 13), canvasContext);
         //Generate bar
         const bar = generateBar(canvasContext, canvas.width, canvas.height);
         const ball = generateBall(canvasContext, canvas.width, canvas.height);
